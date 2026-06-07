@@ -28,8 +28,8 @@
   html, body { height: 100%; }
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    /* FLAT bg matching the logo's blue background so there's no visible rectangle */
-    background: var(--bg);
+    background:
+      radial-gradient(ellipse at 50% 35%, #143258 0%, var(--bg) 45%, var(--bg-deep) 100%);
     color: var(--cream);
     min-height: 100vh;
     overflow-x: hidden;
@@ -56,11 +56,8 @@
     width: clamp(280px, 60vw, 580px);
     height: auto;
     display: block;
-    /* lighten blend mode drops the JPG's solid navy background into the
-       page bg seamlessly — whichever is brighter at each pixel wins, so
-       the dark image rectangle disappears while the white "2"/"3" and
-       gold "S" stay fully intact. */
-    mix-blend-mode: lighten;
+    /* True transparent PNG — no blend tricks needed */
+    filter: drop-shadow(0 8px 40px rgba(0,0,0,.5));
   }
   .inquiries {
     margin-top: 56px;
@@ -103,7 +100,7 @@
 </head>
 <body>
 <main>
-  <img class="logo" src="2s3-logo.jpg" alt="2S3 — Second Safety Third LLC">
+  <img class="logo" src="2s3-logo.png" alt="2S3 — Second Safety Third LLC">
   <a class="inquiries" href="mailto:info@2s3holdings.com">
     Inquiries<span class="arrow">→</span>
   </a>
