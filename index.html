@@ -16,8 +16,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
+    /* --bg sampled from the logo's blue background so the JPG blends seamlessly */
     --bg: #0e2548;
-    --bg-deep: #081a36;
+    --bg-deep: #061830;
     --gold: #c39042;
     --gold-soft: #d4a55a;
     --cream: #f4f1ea;
@@ -27,18 +28,20 @@
   html, body { height: 100%; }
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background:
-      radial-gradient(ellipse at 50% 35%, #16315a 0%, var(--bg) 50%, var(--bg-deep) 100%);
+    /* FLAT bg matching the logo's blue background so there's no visible rectangle */
+    background: var(--bg);
     color: var(--cream);
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
-  /* Faint grain + vignette so the bg has texture, not a flat wash */
-  body::before {
-    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  /* Subtle vignette + grain on TOP of everything — adds depth at the edges
+     without changing the center color where the logo sits. Layered above
+     the logo so the corners darken naturally. */
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 3;
     background:
-      radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,.5) 100%),
+      radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.45) 100%),
       repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px, transparent 1px, transparent 3px);
   }
   main {
@@ -97,7 +100,7 @@
 </head>
 <body>
 <main>
-  <img class="logo" src="2s3-logo.png" alt="2S3 — Second Safety Third LLC">
+  <img class="logo" src="2s3-logo.jpg" alt="2S3 — Second Safety Third LLC">
   <a class="inquiries" href="mailto:inquiries@2s3holdings.com">
     Inquiries<span class="arrow">→</span>
   </a>
