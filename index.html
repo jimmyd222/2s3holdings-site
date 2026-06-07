@@ -16,8 +16,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* --bg sampled from the logo's blue background so the JPG blends seamlessly */
-    --bg: #0e2548;
+    /* --bg matched to the logo's dark navy bg so the JPG blends seamlessly */
+    --bg: #0a2244;
     --bg-deep: #061830;
     --gold: #c39042;
     --gold-soft: #d4a55a;
@@ -41,7 +41,7 @@
   body::after {
     content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 3;
     background:
-      radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.45) 100%),
+      radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,.3) 100%),
       repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px, transparent 1px, transparent 3px);
   }
   main {
@@ -56,8 +56,11 @@
     width: clamp(280px, 60vw, 580px);
     height: auto;
     display: block;
-    /* drop-shadow grounds the logo against the radial background */
-    filter: drop-shadow(0 8px 40px rgba(0,0,0,.4));
+    /* lighten blend mode drops the JPG's solid navy background into the
+       page bg seamlessly — whichever is brighter at each pixel wins, so
+       the dark image rectangle disappears while the white "2"/"3" and
+       gold "S" stay fully intact. */
+    mix-blend-mode: lighten;
   }
   .inquiries {
     margin-top: 56px;
