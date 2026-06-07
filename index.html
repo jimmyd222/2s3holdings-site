@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e2548">
+<meta name="robots" content="index, follow">
+<title>Second Safety Third LLC</title>
+<meta name="description" content="Second Safety Third LLC — a holding company.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Second Safety Third LLC">
+<meta property="og:description" content="A holding company.">
+<meta property="og:url" content="https://2s3holdings.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e2548;
+    --bg-deep: #081a36;
+    --gold: #c39042;
+    --gold-soft: #d4a55a;
+    --cream: #f4f1ea;
+    --cream-dim: #8d97a8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background:
+      radial-gradient(ellipse at 50% 35%, #16315a 0%, var(--bg) 50%, var(--bg-deep) 100%);
+    color: var(--cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Faint grain + vignette so the bg has texture, not a flat wash */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    background:
+      radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,.5) 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px, transparent 1px, transparent 3px);
+  }
+  main {
+    position: relative; z-index: 2;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px 28px 100px;
+    text-align: center;
+  }
+  .logo {
+    width: clamp(280px, 60vw, 580px);
+    height: auto;
+    display: block;
+    /* drop-shadow grounds the logo against the radial background */
+    filter: drop-shadow(0 8px 40px rgba(0,0,0,.4));
+  }
+  .inquiries {
+    margin-top: 56px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    text-decoration: none;
+    transition: color .3s ease, letter-spacing .3s ease;
+    padding: 4px 0;
+  }
+  .inquiries:hover {
+    color: var(--gold-soft);
+    letter-spacing: .36em;
+  }
+  .inquiries .arrow {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform .3s ease;
+  }
+  .inquiries:hover .arrow {
+    transform: translateX(4px);
+  }
+  footer {
+    position: fixed; bottom: 24px; left: 0; right: 0;
+    text-align: center;
+    font-size: 10.5px; letter-spacing: .42em;
+    text-transform: uppercase;
+    color: rgba(244,241,234,.25);
+    z-index: 2;
+  }
+  @media (max-width: 520px) {
+    main { padding: 40px 20px 90px; }
+    .logo { width: 84vw; }
+    .inquiries { margin-top: 40px; font-size: 11px; letter-spacing: .28em; }
+    footer { font-size: 9px; letter-spacing: .34em; bottom: 18px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="2s3-logo.png" alt="2S3 — Second Safety Third LLC">
+  <a class="inquiries" href="mailto:inquiries@2s3holdings.com">
+    Inquiries<span class="arrow">→</span>
+  </a>
+</main>
+
+<footer>
+  Second Safety Third LLC · Omaha
+</footer>
+</body>
+</html>
